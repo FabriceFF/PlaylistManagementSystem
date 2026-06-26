@@ -1,14 +1,23 @@
-//
-// Created by fabri on 19.06.2026.
-//
-include/Song.h
 
-#ifndef PLAYLISTMANAGEMENTSYSTEM_SONG_H
-#define PLAYLISTMANAGEMENTSYSTEM_SONG_H
+#ifndef SONG_H
+#define SONG_H
 
+#include <string>
 
 class Song {
+private:
+    std::string title;
+    std::string artist;
+    int duration; // in seconds
+
+public:
+    Song(const std::string& title, const std::string& artist, int duration);
+
+    std::string getTitle() const;
+    std::string getArtist() const;
+    int getDuration() const;
+
+    std::string toString() const;
 };
 
-
-#endif //PLAYLISTMANAGEMENTSYSTEM_SONG_H
+#endif // SONG_H

@@ -1,28 +1,23 @@
-//
-// Created by fabri on 19.06.2026.
-//
-#include <iostream>
-#ifndef SONG_H
-#define SONG_H
-#include <string>
+#include "Song.h"
+#include <sstream>
 
-using namespace std;
+Song::Song(const std::string& title, const std::string& artist, int duration)
+        : title(title), artist(artist), duration(duration) {}
 
-class Song {
-    private:
-    int duration;
-    string artist;
-    string title;
+std::string Song::getTitle() const {
+    return title;
+}
 
-    public: //constructor
-    Song(const int duration, const string& artist, const string& title);
+std::string Song::getArtist() const {
+    return artist;
+}
 
-    // Read the privates
-    string get_artist() const;
-    string get_title() const;
-    int get_duration() const;
+int Song::getDuration() const {
+    return duration;
+}
 
-    //Convert song to readable text
-    string to_string() const;
-};
-#endif
+std::string Song::toString() const {
+    std::stringstream ss;
+    ss << title << " - " << artist << " (" << duration << "s)";
+    return ss.str();
+}
